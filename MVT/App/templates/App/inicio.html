@@ -1,0 +1,66 @@
+{% extends 'App/padre.html' %}
+
+{% load static %}
+
+
+{% block cambiante %}
+
+<P><h3>Bienvenido a mi pagina!</h3></P>
+<div>
+    {% if miFormulario.errors %}
+     <p style="color: red"> Hay problemas con los datos cargados</p>
+    {% endif %}
+        
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+            
+            
+        <p>Nombre: <input style="border-radius: 10px; text-align: center;" type="text" name="nombre"></p>
+        <p>Apellido: <input style="border-radius: 10px; text-align: center;" type="number" name="apellido"></p>
+        <p>Dni: <input style="border-radius: 10px; text-align: center;" type="email" name="dni"></p>
+         
+          
+
+           
+        
+
+        <input type="submit" value="Cargar curso">
+    </form>
+
+</div>
+
+
+    <div style="text-align: center;" >
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th >Nombre</th>
+                    <th >Apellido</th>
+                    <th >Dni</th>
+                    <th >Fecha de nacimiento</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for x in cont_familia %}
+                    <tr>
+                    <td>{{x.nombre}}</td>
+                    <td>{{x.apellido}}</td>
+                    <td>{{x.dni}}</td>
+                    <td>{{x.fecha_nacimiento}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+
+
+    
+{% endblock cambiante %}
+
